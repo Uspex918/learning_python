@@ -1,0 +1,625 @@
+<!-- Откройте в браузере двумя кликами!!!! -->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Условные операторы — практика</title>
+
+    <style>
+        :root {
+            --bg: #f6f7fb;
+            --card: #ffffff;
+            --text: #222;
+            --code-bg: #f0f0f0;
+
+            --primary: #3776ab;
+            --accent:  #ffd343;
+        }
+
+        body.dark {
+            --bg: #0f172a;
+            --card: #1e293b;
+            --text: #e5e7eb;
+            --code-bg: #020617;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            transition: background .2s, color .2s;
+        }
+
+        h2 { text-align: center; margin-bottom: 10px; }
+        .subtitle { text-align: center; margin-bottom: 20px; opacity: .8; }
+
+        .controls { text-align: center; margin-bottom: 20px; }
+
+        button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 6px 12px;
+            margin: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        button.secondary { background: #555; }
+        button.theme { background: var(--accent); color: #000; font-weight: 600; }
+
+        .task {
+            background: var(--card);
+            border-radius: 10px;
+            padding: 16px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,.05);
+        }
+
+        .task h3 { margin-top: 0; color: var(--primary); }
+
+        pre {
+            background: var(--code-bg);
+            padding: 12px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: Consolas, "Courier New", monospace;
+            font-size: 14px;
+        }
+
+        .solution {
+            display: none;
+            margin-top: 10px;
+            border-left: 4px solid var(--accent);
+            padding-left: 12px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 13px;
+            opacity: .7;
+        }
+
+        .footer a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer a:hover { text-decoration: underline; }
+    </style>
+</head>
+
+<body class="dark">
+
+<h2>Дополнительные задания — Условные операторы</h2>
+<p class="subtitle">В этом файле каждое задание содержит условие, стартовый код и пример решения.</p>
+<p class="subtitle">Решать в редакторе, это не интерактив, тут вам не здесь.</p>
+
+<div class="controls">
+    <button onclick="showAll()">Показать все решения</button>
+    <button class="secondary" onclick="hideAll()">Скрыть все решения</button>
+    <button class="theme" onclick="toggleTheme()">Сменить тему</button>
+</div>
+
+<!-- ================= ЗАДАНИЕ 1 ================= -->
+<div class="task">
+<h3>Задание 1</h3>
+<p><b>Условие:</b> Напишите программу, которая принимает число и выводит,
+положительное оно, отрицательное или равно нулю.</p>
+
+<pre>
+number = float(input("Введите число: "))
+
+# ваш код здесь
+</pre>
+
+<button onclick="toggle(this)">Показать решение</button>
+<div class="solution">
+<pre>
+number = float(input("Введите число: "))
+
+if number > 0:
+    print("Число положительное")
+elif number < 0:
+    print("Число отрицательное")
+else:
+    print("Число равно нулю")
+</pre>
+</div>
+</div>
+
+<!-- ================= ЗАДАНИЕ 2 ================= -->
+<div class="task">
+<h3>Задание 2</h3>
+<p><b>Условие:</b> Программа принимает возраст пользователя и выводит:
+"Ребёнок" (до 12), "Подросток" (13–17), "Взрослый" (18 и старше).</p>
+
+<pre>
+age = int(input("Введите возраст: "))
+
+# ваш код здесь
+</pre>
+
+<button onclick="toggle(this)">Показать решение</button>
+<div class="solution">
+<pre>
+age = int(input("Введите возраст: "))
+
+if age <= 12:
+    print("Ребёнок")
+elif age <= 17:
+    print("Подросток")
+else:
+    print("Взрослый")
+</pre>
+</div>
+</div>
+
+<!-- ================= ЗАДАНИЕ 3 ================= -->
+<div class="task">
+<h3>Задание 3</h3>
+<p><b>Условие:</b> Пользователь вводит два числа. Выведите большее из них.
+Если они равны — выведите сообщение "Числа равны".</p>
+
+<pre>
+a = float(input("Введите первое число: "))
+b = float(input("Введите второе число: "))
+
+# ваш код здесь
+</pre>
+
+<button onclick="toggle(this)">Показать решение</button>
+<div class="solution">
+<pre>
+a = float(input("Введите первое число: "))
+b = float(input("Введите второе число: "))
+
+if a > b:
+    print("Большее число:", a)
+elif b > a:
+    print("Большее число:", b)
+else:
+    print("Числа равны")
+</pre>
+</div>
+</div>
+
+<!-- ================= ЗАДАНИЕ 4 ================= -->
+<div class="task">
+<h3>Задание 4</h3>
+<p><b>Условие:</b> Программа принимает температуру и выводит:
+"Холодно" (меньше 10), "Тепло" (10–24), "Жарко" (25 и больше).</p>
+
+<pre>
+temp = float(input("Введите температуру: "))
+
+# ваш код здесь
+</pre>
+
+<button onclick="toggle(this)">Показать решение</button>
+<div class="solution">
+<pre>
+temp = float(input("Введите температуру: "))
+
+if temp < 10:
+    print("Холодно")
+elif temp <= 24:
+    print("Тепло")
+else:
+    print("Жарко")
+</pre>
+</div>
+</div>
+
+<!-- ================= ЗАДАНИЕ 5 ================= -->
+<div class="task">
+<h3>Задание 5</h3>
+<p><b>Условие:</b> Пользователь вводит число. Проверьте, является ли оно чётным.</p>
+
+<pre>
+num = int(input("Введите число: "))
+
+# ваш код здесь
+</pre>
+
+<button onclick="toggle(this)">Показать решение</button>
+<div class="solution">
+<pre>
+num = int(input("Введите число: "))
+
+if num % 2 == 0:
+    print("Число чётное")
+else:
+    print("Число нечётное")
+</pre>
+</div>
+</div>
+
+<!-- ================= ЗАДАНИЕ 6 ================= -->
+<div class="task">
+<h3>Задание 6</h3>
+<p><b>Условие:</b> Пользователь вводит пароль.  
+Если длина пароля меньше 6 символов — выведите "Слишком короткий пароль",
+иначе — "Пароль принят".</p>
+
+<pre>
+password = input("Введите пароль: ")
+
+# ваш код здесь
+</pre>
+
+<button onclick="toggle(this)">Показать решение</button>
+<div class="solution">
+<pre>
+password = input("Введите пароль: "))
+
+if len(password) < 6:
+    print("Слишком короткий пароль")
+else:
+    print("Пароль принят")
+</pre>
+</div>
+</div>
+
+<!-- ================= ЗАДАНИЕ 7 ================= -->
+<div class="task">
+<h3>Задание 7</h3>
+<p><b>Условие:</b> Пользователь вводит оценку от 0 до 100.  
+Выведите:
+A (90–100), B (80–89), C (70–79), D (60–69), F (меньше 60).</p>
+
+<pre>
+score = int(input("Введите оценку: "))
+
+# ваш код здесь
+</pre>
+
+<button onclick="toggle(this)">Показать решение</button>
+<div class="solution">
+<pre>
+score = int(input("Введите оценку: "))
+
+if score >= 90:
+    print("A")
+elif score >= 80:
+    print("B")
+elif score >= 70:
+    print("C")
+elif score >= 60:
+    print("D")
+else:
+    print("F")
+</pre>
+</div>
+</div>
+
+<!-- ================= ЗАДАНИЕ 8 ================= -->
+<div class="task">
+<h3>Задание 8</h3>
+<p><b>Условие:</b> Пользователь вводит два числа.
+Проверьте, кратно ли первое число второму.</p>
+
+<pre>
+a = float(input("Введите первое число: "))
+b = float(input("Введите второе число: "))
+
+# ваш код здесь
+</pre>
+
+<button onclick="toggle(this)">Показать решение</button>
+<div class="solution">
+<pre>
+a = float(input("Введите первое число: "))
+b = float(input("Введите второе число: "))
+
+if b == 0:
+    print("На ноль делить нельзя")
+elif a % b == 0:
+    print("Первое число кратно второму")
+else:
+    print("Первое число не кратно второму")
+</pre>
+</div>
+</div>
+
+<!-- ================= ЗАДАНИЕ 9 ================= -->
+<div class="task">
+<h3>Задание 9</h3>
+<p><b>Условие:</b> Пользователь вводит нецелое число.  
+Если оно больше 100 или меньше 0 — выведите "Только от 0 до 100",
+иначе округлите его с помощью <b>round</b> до 2 знаков после точки.</p>
+
+<pre>
+num = float(input("Введите число: "))
+
+# ваш код здесь
+</pre>
+
+<button onclick="toggle(this)">Показать решение</button>
+<div class="solution">
+<pre>
+num = float(input("Введите число: "))
+
+if num < 0 or num > 100:
+    print("Только от 0 до 100")
+else:
+    print(round(num, 2))
+</pre>
+</div>
+</div>
+
+<!-- ================= ЗАДАНИЕ 10 ================= -->
+<div class="task">
+<h3>Задание 10</h3>
+<p><b>Условие:</b> Пользователь вводит строку.  
+Если длина строки больше 10 символов — выведите "Длинная строка",
+иначе — "Короткая строка".</p>
+
+<pre>
+text = input("Введите строку: ")
+
+# ваш код здесь
+</pre>
+
+<button onclick="toggle(this)">Показать решение</button>
+<div class="solution">
+<pre>
+text = input("Введите строку: ")
+
+if len(text) > 10:
+    print("Длинная строка")
+else:
+    print("Короткая строка")
+</pre>
+</div>
+</div>
+
+
+<!-- ================= ЗАДАНИЕ 11 ================= -->
+<div class="task">
+<h3>Задание 11</h3>
+<p><b>Условие:</b> Пользователь вводит a и b. Посчитайте сколько процентов
+a от b. Формула процентов (a/b)*100.
+</p>
+
+<pre>
+a = float(input("Часть: "))
+b = float(input("От целого: "))
+
+# ваш код здесь
+</pre>
+
+<button onclick="toggle(this)">Показать решение</button>
+<div class="solution">
+<pre>
+a = float(input("Часть: "))
+b = float(input("От целого: "))
+
+if b == 0:
+    print("На ноль делить нельзя! И части от 0 нет.")
+else:
+    result = (a / b) * 100
+    result = round(result, 2)
+    print(str(result) + "%")
+</pre>
+</div>
+</div>
+
+
+<!-- ================= ЗАДАНИЕ 12 ================= -->
+<div class="task">
+<h3>Задание 12</h3>
+<p><b>Условие:</b> Пользователь вводит не целое число, например 5.2564494 и 
+вводит до какого знака после запятой (точки) его округлить. Сделайте рассчеты.
+</p>
+
+<pre>
+num = float(input("Введите число: "))
+rounding = int(input("До какого знака округлять: "))
+
+# ваш код здесь
+</pre>
+
+<button onclick="toggle(this)">Показать решение</button>
+<div class="solution">
+<pre>
+num = float(input("Введите число: "))
+rounding = int(input("До какого знака округлять: "))
+
+if rounding < 0:
+    print("Значение для количсетва знаков после точки не может быть меньше 0.")
+    # Хотя если передать в round отрицательное число в параметр до скольки округлять,
+    # то результатом округлеия будет просто 0. Так специально сделано, чтоб ошибок не было.
+else:
+    print(round(num, rounding))
+</pre>
+</div>
+</div>
+
+
+
+<!-- ================= ЗАДАНИЕ 13 ================= -->
+<div class="task">
+<h3>Задание 13</h3>
+<p><b>Условие:</b> Пользователь вводит число, проверьте, если в введенном есть
+точка, то сконверитруйте его во float, если точки нет то в int.
+</p>
+
+<pre>
+num = input("Введите число: ")
+
+# ваш код здесь
+</pre>
+
+<button onclick="toggle(this)">Показать решение</button>
+<div class="solution">
+<pre>
+num = input("Введите число: ")
+
+if "." in num:
+    num = float(num)
+else:
+    num = int(num)
+
+print(num)
+</pre>
+</div>
+</div>
+
+
+<!-- ================= ЗАДАНИЕ 14 ================= -->
+<div class="task">
+<h3>Задание 14</h3>
+<p><b>Условие:</b> Нужно разделить a на b. Если b равняется 0, то выведите сообщение,
+что на 0 делить нельзя. А если всё ОК, то посчитайте!
+</p>
+
+<pre>
+a = float(input("Введите число: "))
+b = float(input("Введите 2-е число: "))
+
+# ваш код здесь
+</pre>
+
+<button onclick="toggle(this)">Показать решение</button>
+<div class="solution">
+<pre>
+a = float(input("Введите число: "))
+b = float(input("Введите 2-е число: "))
+
+if b == 0:
+    print("На ноль делить нельзя! Даже если очень хочется!")
+else:
+    print("Результат:", a / b)
+
+
+# ИЛИ
+if b == 0:
+    print("На ноль делить нельзя! Даже если очень хочется!")
+else:
+    result = a / b
+    print("Результат:", result)
+
+
+# ИЛИ
+if b == 0:
+    print("На ноль делить нельзя! Даже если очень хочется!")
+else:
+    result = a / b
+    print("Результат:", round(result, 2))
+
+
+# ИЛИ
+if b == 0:
+    result = "На ноль делить нельзя! Даже если очень хочется!"
+else:
+    result = round(a / b, 2)
+
+print("Результат:", result)
+
+
+# ИЛИ другие удобные в данной ситуации варианты, даже так:
+if b == 0:
+    message = "На ноль делить нельзя! Ошибка операции -"
+    result = False
+else:
+    message = "Результат:"
+    result = round(a / b, 2)
+
+print(message, result)
+</pre>
+</div>
+</div>
+
+
+<!-- ================= ЗАДАНИЕ 15 ================= -->
+<div class="task">
+<h3>Задание 15</h3>
+<p><b>Условие:</b> Пользователь вводит Имя и потом отдельно Фамиилию. Давайте попробуем
+сделать так, что если он введет все правильно, то мы объединим его Имя и Фамилию в одну
+строку (как один объект новый) и выведем на печать в терминал.<br>
+А если он ошибется и введет в поле "Имя" анкеты сразу и свое Имя и Фамилию, то мы выведем
+сообщение, что:<br>
+"Внимательно заполняйте анкету!! Это был последний бланк ахахах)))"<br>
+и программа завершиться.<br>
+Подсказки:<br>
+1) Там будет пробел в строке, если он введет все сразу.<br>
+2) Сначала проверяйте ошибочный вариант, так будет проще и правильнее.
+</p>
+
+<pre>
+name = input("Введите Имя: ")
+last_name = input("Введите Фамилию: ")
+
+# ваш код здесь
+</pre>
+
+<button onclick="toggle(this)">Показать решение</button>
+<div class="solution">
+<pre>
+name = input("Введите Имя: ")
+last_name = input("Введите Фамилию: ")
+
+if " " in name:
+    print("Внимательно заполняйте анкету!! Это был последний бланк ахахах)))")
+else:
+    full_name = name + " " + last_name
+    print(full_name)
+
+
+# или более предусмотрительно с оператором or:
+if " " in name:
+    print("Внимательно заполняйте анкету!! Это был последний бланк ахахах)))")
+elif name == "" or last_name == "":
+    print("Бланк нужно заполнить полностью!! (всё заново пока что)")
+else:
+    full_name = name + " " + last_name
+    print(full_name)
+
+</pre>
+</div>
+</div>
+
+<div class="footer">
+    Oleksandr Tukas • Курс Python • офлайн-версия • без сохранения данных<br>
+    <a href="https://www.udemy.com/course/python-full-course"
+       target="_blank" rel="noopener noreferrer">
+        Перейти в курс
+    </a>
+</div>
+
+<script>
+function toggle(btn) {
+    const sol = btn.nextElementSibling;
+    if (sol.style.display === "block") {
+        sol.style.display = "none";
+        btn.textContent = "Показать решение";
+    } else {
+        sol.style.display = "block";
+        btn.textContent = "Скрыть решение";
+    }
+}
+
+function showAll() {
+    document.querySelectorAll(".solution").forEach(el => el.style.display = "block");
+    document.querySelectorAll(".task button").forEach(b => b.textContent = "Скрыть решение");
+}
+
+function hideAll() {
+    document.querySelectorAll(".solution").forEach(el => el.style.display = "none");
+    document.querySelectorAll(".task button").forEach(b => b.textContent = "Показать решение");
+}
+
+function toggleTheme() {
+    document.body.classList.toggle("dark");
+}
+</script>
+
+</body>
+</html>

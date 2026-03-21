@@ -1,0 +1,478 @@
+<!-- Откройте в браузере двумя кликами!!!! -->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Условные операторы 2 — практика</title>
+
+    <style>
+        :root {
+            --bg: #f6f7fb;
+            --card: #ffffff;
+            --text: #222;
+            --code-bg: #f0f0f0;
+
+            /* Python palette */
+            --primary: #3776ab;
+            --accent:  #ffd343;
+        }
+
+        body.dark {
+            --bg: #0f172a;
+            --card: #1e293b;
+            --text: #e5e7eb;
+            --code-bg: #020617;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            transition: background .2s, color .2s;
+        }
+
+        h2 { text-align: center; margin-bottom: 10px; }
+        .subtitle { text-align: center; margin-bottom: 20px; opacity: .8; }
+
+        .controls { text-align: center; margin-bottom: 20px; }
+
+        button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 6px 12px;
+            margin: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        button.secondary { background: #555; }
+        button.theme { background: var(--accent); color: #000; font-weight: 600; }
+
+        .task {
+            background: var(--card);
+            border-radius: 10px;
+            padding: 16px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,.05);
+        }
+
+        .task h3 { margin-top: 0; color: var(--primary); }
+
+        pre {
+            background: var(--code-bg);
+            padding: 12px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: Consolas, "Courier New", monospace;
+            font-size: 14px;
+        }
+
+        .solution {
+            display: none;
+            margin-top: 10px;
+            border-left: 4px solid var(--accent);
+            padding-left: 12px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 13px;
+            opacity: .7;
+        }
+
+        .footer a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .footer a:hover { text-decoration: underline; }
+    </style>
+</head>
+
+<body class="dark">
+
+<h2>Дополнительные задания — Условные операторы 2</h2>
+<p class="subtitle">В этом файле каждое задание содержит условие, начальный код и пример решения.</p>
+<p class="subtitle">Решать в редакторе, это не интерактив, тут вам не здесь.</p>
+
+<div class="controls">
+    <button onclick="showAll()">Показать все решения</button>
+    <button class="secondary" onclick="hideAll()">Скрыть все решения</button>
+    <button class="theme" onclick="toggleTheme()">Сменить тему</button>
+</div>
+
+<!-- ================= ЗАДАНИЕ 1 ================= -->
+<div class="task">
+<h3>Задание 1</h3>
+<p><b>Условие:</b> Пользователь вводит строку.  
+Если длина строки больше 10 символов — выведите первый и последний символ,
+иначе — выведите "Строка слишком короткая".</p>
+
+<pre>
+text = input("Введите строку: ")
+
+# ваш код здесь
+</pre>
+
+<button onclick="toggle(this)">Показать решение</button>
+<div class="solution">
+<pre>
+text = input("Введите строку: ")
+
+if len(text) > 10:
+    print(text[0], text[-1])
+else:
+    print("Строка слишком короткая")
+</pre>
+</div>
+</div>
+
+<!-- ================= ЗАДАНИЕ 2 ================= -->
+<div class="task">
+<h3>Задание 2</h3>
+<p><b>Условие:</b> Пользователь вводит строку.  
+Если строка начинается с буквы <b>"A"</b> или <b>"a"</b> — выведите "Начинается с A",
+иначе — "Начинается с другой буквы". Можно использовать методы строк.</p>
+
+<pre>
+text = input("Введите строку: ")
+
+# ваш код здесь
+</pre>
+
+<button onclick="toggle(this)">Показать решение</button>
+<div class="solution">
+<pre>
+text = input("Введите строку: ")
+
+if text.startswith("A") or text.startswith("a"):
+    print("Начинается с A")
+else:
+    print("Начинается с другой буквы")
+
+
+# ИЛИ
+if text[0] == "A" or text[0] == "a":
+    print("Начинается с A")
+else:
+    print("Начинается с другой буквы")
+
+
+# ИЛИ
+if text[0].lower() == "a":
+    print("Начинается с A")
+else:
+    print("Начинается с другой буквы")
+
+В результате этого выражения text[0] мы получаем новый объект строки, которая
+состоит из 1 символа, и значит мы можем к нему применять методы.
+</pre>
+</div>
+</div>
+
+<!-- ================= ЗАДАНИЕ 3 ================= -->
+<div class="task">
+<h3>Задание 3</h3>
+<p><b>Условие:</b> Пользователь вводит строку.  
+Если длина строки больше 8 символов — выведите первые 4 символа,
+иначе — выведите всю строку.</p>
+
+<pre>
+text = input("Введите строку: ")
+
+# ваш код здесь
+</pre>
+
+<button onclick="toggle(this)">Показать решение</button>
+<div class="solution">
+<pre>
+text = input("Введите строку: ")
+
+if len(text) > 8:
+    print(text[:4])
+else:
+    print(text)
+</pre>
+</div>
+</div>
+
+<!-- ================= ЗАДАНИЕ 4 ================= -->
+<div class="task">
+<h3>Задание 4</h3>
+<p><b>Условие:</b> Пользователь вводит строку.  
+Если длина строки больше 6 символов <b>и</b> последний символ — "!" —
+выведите "Эмоциональное сообщение", иначе — "Обычное сообщение".</p>
+
+<pre>
+text = input("Введите сообщение: ")
+
+# ваш код здесь
+</pre>
+
+<button onclick="toggle(this)">Показать решение</button>
+<div class="solution">
+<pre>
+text = input("Введите сообщение: ")
+
+if len(text) > 6 and text[-1] == "!":
+    print("Эмоциональное сообщение")
+else:
+    print("Обычное сообщение")
+</pre>
+</div>
+</div>
+
+<!-- ================= ЗАДАНИЕ 5 ================= -->
+<div class="task">
+<h3>Задание 5</h3>
+<p><b>Условие:</b> Пользователь вводит строку.  
+Если строка содержит символ "@" <b>или</b> символ "#" —
+выведите "Спецсимвол найден", иначе — "Спецсимволов нет".</p>
+
+<pre>
+text = input("Введите строку: ")
+
+# ваш код здесь
+</pre>
+
+<button onclick="toggle(this)">Показать решение</button>
+<div class="solution">
+<pre>
+text = input("Введите строку: ")
+
+if "@" in text or "#" in text:
+    print("Спецсимвол найден")
+else:
+    print("Спецсимволов нет")
+</pre>
+</div>
+</div>
+
+<!-- ================= ЗАДАНИЕ 6 ================= -->
+<div class="task">
+<h3>Задание 6</h3>
+<p><b>Условие:</b> Пользователь вводит имя и фамилию.  
+Если и имя, и фамилия не пустые — выведите приветствие в формате:  
+<b>"Привет, Имя Фамилия!"</b> (используйте f-строку),  
+иначе — "Введите корректные данные".</p>
+
+<pre>
+name = input("Введите имя: ")
+surname = input("Введите фамилию: ")
+
+# ваш код здесь
+</pre>
+
+<button onclick="toggle(this)">Показать решение</button>
+<div class="solution">
+<pre>
+name = input("Введите имя: ")
+surname = input("Введите фамилию: ")
+
+if name and surname:
+    print(f"Привет, {name} {surname}!")
+else:
+    print("Введите корректные данные")
+</pre>
+</div>
+</div>
+
+<!-- ================= ЗАДАНИЕ 7 ================= -->
+<div class="task">
+<h3>Задание 7</h3>
+<p><b>Условие:</b> Пользователь вводит строку.  
+Если длина строки больше 10 символов — выведите срез строки
+с 3-го (включительно) по 8-й символ (включительно),  
+иначе — выведите "Недостаточно символов".</p>
+
+<pre>
+text = input("Введите строку: ")
+
+# ваш код здесь
+</pre>
+
+<button onclick="toggle(this)">Показать решение</button>
+<div class="solution">
+<pre>
+text = input("Введите строку: ")
+
+if len(text) > 10:
+    print(text[2:8])
+else:
+    print("Недостаточно символов")
+</pre>
+</div>
+</div>
+
+<!-- ================= ЗАДАНИЕ 8 ================= -->
+<div class="task">
+<h3>Задание 8</h3>
+<p><b>Условие:</b> Пользователь вводит строку.  
+Если строка не пустая — выведите сообщение:<br>  
+<b>"Первый символ: X, последний символ: Y"</b>  
+(используйте f-строку),  
+иначе — "Пустая строка".</p>
+
+<pre>
+text = input("Введите строку: ")
+
+# ваш код здесь
+</pre>
+
+<button onclick="toggle(this)">Показать решение</button>
+<div class="solution">
+<pre>
+text = input("Введите строку: ")
+
+if text:
+    print(f"Первый символ: {text[0]}, последний символ: {text[-1]}")
+else:
+    print("Пустая строка")
+</pre>
+</div>
+</div>
+
+<!-- ================= ЗАДАНИЕ 9 ================= -->
+<div class="task">
+<h3>Задание 9</h3>
+<p><b>Условие:</b> Пользователь вводит строку.  
+Если длина строки от 5 до 10 символов включительно —
+выведите "Подходящая длина",  
+иначе — "Неподходящая длина".</p>
+
+<pre>
+text = input("Введите строку: ")
+
+# ваш код здесь
+</pre>
+
+<button onclick="toggle(this)">Показать решение</button>
+<div class="solution">
+<pre>
+text = input("Введите строку: ")
+
+if 5 <= len(text) <= 10:
+    print("Подходящая длина")
+else:
+    print("Неподходящая длина")
+</pre>
+</div>
+</div>
+
+<!-- ================= ЗАДАНИЕ 10 ================= -->
+<div class="task">
+<h3>Задание 10</h3>
+<p><b>Условие:</b> Пользователь вводит строку.  
+Если строка начинается с "Py" <b>или</b> заканчивается на "on" —
+выведите "Похоже на Python",  
+иначе — "Не похоже на Python".</p>
+
+<pre>
+text = input("Введите строку: ")
+
+# ваш код здесь
+</pre>
+
+<button onclick="toggle(this)">Показать решение</button>
+<div class="solution">
+<pre>
+text = input("Введите строку: ")
+
+if text.startswith("Py") or text.endswith("on"):
+    print("Похоже на Python")
+else:
+    print("Не похоже на Python")
+</pre>
+</div>
+</div>
+
+
+<!-- ================= ЗАДАНИЕ 11 ================= -->
+<div class="task">
+<h3>Задание 11</h3>
+<p><b>Условие:</b> "Привет - Пока программа"<br>
+Если пользователь введет: Привет, привет, приВет или ПРИВЕТ - ответить ему "И тебе Привет!"<br>
+Если пользователь введет: Пока, ПоКа, и тд - ответить ему "Адьос!".
+</p>
+
+<pre>
+text = input("Введите фразу: ")
+
+# ваш код здесь
+</pre>
+
+<button onclick="toggle(this)">Показать решение</button>
+<div class="solution">
+<pre>
+text = input("Введите фразу: ")
+
+if text.lower() == "привет":
+    print("И тебе привет!")
+elif text.lower() == "пока":
+    print("Адьос!")
+else:
+    print("Не, я не разговариваю с незнакомыми людьми! Адьос!")
+
+
+# ИЛИ более предусмотрительно, чтоб учесть не четкое равенство, а вхождение:
+if "привет" in text.lower():
+    print("И тебе привет!")
+elif "пока" in text.lower():
+    print("Адьос!")
+else:
+    print("Не, я не разговариваю с незнакомыми людьми! Адьос!")
+
+# ВАЖНО!!! предназначение операторов <b>==</b> и <b>in</b> имеет смысл не только с точки зрения эффекта
+который мы получаем, а и семантики (значения/предназначения в коде).
+Если нам нужно сравнить два символа или две строки на равенство, то мы используем ==,
+если вхождение, то in.
+Хотя такое: if "привет" in "привет" и даст тот же эффект, что и ==,
+нужно брать во внимание, что мы хотим сделать, если четкое совпадение, то используем ==,
+если нужно проверить вхождение, то in.
+</pre>
+</div>
+</div>
+
+
+<div class="footer">
+    Oleksandr Tukas • Курс Python • офлайн-версия • без сохранения данных<br>
+    <a href="https://www.udemy.com/course/python-full-course"
+       target="_blank" rel="noopener noreferrer">
+        Перейти в курс
+    </a>
+</div>
+
+<script>
+function toggle(btn) {
+    const sol = btn.nextElementSibling;
+    if (sol.style.display === "block") {
+        sol.style.display = "none";
+        btn.textContent = "Показать решение";
+    } else {
+        sol.style.display = "block";
+        btn.textContent = "Скрыть решение";
+    }
+}
+
+function showAll() {
+    document.querySelectorAll(".solution").forEach(el => el.style.display = "block");
+    document.querySelectorAll(".task button").forEach(b => b.textContent = "Скрыть решение");
+}
+
+function hideAll() {
+    document.querySelectorAll(".solution").forEach(el => el.style.display = "none");
+    document.querySelectorAll(".task button").forEach(b => b.textContent = "Показать решение");
+}
+
+function toggleTheme() {
+    document.body.classList.toggle("dark");
+}
+</script>
+
+</body>
+</html>
