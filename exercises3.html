@@ -1,0 +1,784 @@
+<!-- Откройте в браузере двумя кликами!!!! -->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Цикл while — практика</title>
+
+    <style>
+        :root {
+            --bg: #f6f7fb;
+            --card: #ffffff;
+            --text: #222;
+            --code-bg: #f0f0f0;
+
+            /* Python palette */
+            --primary: #3776ab;
+            --accent:  #ffd343;
+        }
+
+        body.dark {
+            --bg: #0f172a;
+            --card: #1e293b;
+            --text: #e5e7eb;
+            --code-bg: #020617;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            transition: background .2s, color .2s;
+        }
+
+        h2 { text-align: center; margin-bottom: 10px; }
+        .subtitle { text-align: center; margin-bottom: 20px; opacity: .8; }
+
+        .controls { text-align: center; margin-bottom: 20px; }
+
+        button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 6px 12px;
+            margin: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        button.secondary { background: #555; }
+        button.theme { background: var(--accent); color: #000; font-weight: 600; }
+
+        .task {
+            background: var(--card);
+            border-radius: 10px;
+            padding: 16px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,.05);
+        }
+
+        .task h3 { margin-top: 0; color: var(--primary); }
+
+        pre {
+            background: var(--code-bg);
+            padding: 12px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: Consolas, "Courier New", monospace;
+            font-size: 14px;
+        }
+
+        .solution {
+            display: none;
+            margin-top: 10px;
+            border-left: 4px solid var(--accent);
+            padding-left: 12px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 13px;
+            opacity: .7;
+        }
+
+        .footer a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .footer a:hover { text-decoration: underline; }
+    </style>
+</head>
+
+<body class="dark">
+
+<h2>Дополнительные задания — Цикл while</h2>
+<p class="subtitle">В этом файле каждое задание содержит условие, начальный код и пример решения.</p>
+<p class="subtitle">Решать в редакторе, это не интерактив, тут вам не здесь.</p>
+
+<div class="controls">
+    <button onclick="showAll()">Показать все решения</button>
+    <button class="secondary" onclick="hideAll()">Скрыть все решения</button>
+    <button class="theme" onclick="toggleTheme()">Сменить тему</button>
+</div>
+
+<!-- ================= ЗАДАНИЕ 1 ================= -->
+<div class="task">
+<h3>Задание 1</h3>
+<p><b>Условие:</b> Выведите на печать (print) числа от 1 до 10 с помощью цикла <b>while</b>.</p>
+
+<pre>
+i = 1
+
+# ваш код здесь
+</pre>
+
+<button onclick="toggle(this)">Показать решение</button>
+<div class="solution">
+<pre>
+i = 1
+
+while i <= 10:
+    print(i)
+    i += 1
+
+
+# или для примера можно условие поставить внутри цикла в if условиях
+# и прервать цикл через break. В данном случае конечно лучше первый варинт,
+# но варианты нужно посмотреть для фантазии:
+
+i = 1
+
+while True:
+    if i <= 10:
+        print(i)
+        i += 1
+    else:
+        break
+
+# то же самое, только скомпановано по другому:
+
+i = 1
+
+while True:
+    if i > 10:
+        break
+    print(i)
+    i += 1
+# в таком случае else не нужен (просто лишний), так как
+# в случае break цикл прервется.
+
+
+# это было чтоб вашу фантазию проработать на варианты.
+</pre>
+</div>
+</div>
+
+<!-- ================= ЗАДАНИЕ 2 ================= -->
+<div class="task">
+<h3>Задание 2</h3>
+<p><b>Условие:</b> Выведите числа от 10 до 1 в обратном порядке.</p>
+
+<pre>
+i = 10
+
+# ваш код здесь
+</pre>
+
+<button onclick="toggle(this)">Показать решение</button>
+<div class="solution">
+<pre>
+i = 10
+
+while i >= 1:
+    print(i)
+    i -= 1
+</pre>
+</div>
+</div>
+
+<!-- ================= ЗАДАНИЕ 3 ================= -->
+<div class="task">
+<h3>Задание 3</h3>
+<p><b>Условие:</b> Пользователь вводит число.  
+Выведите все числа от 1 до этого числа.</p>
+
+<pre>
+n = int(input("Введите число: "))
+i = 1
+
+# ваш код здесь
+</pre>
+
+<button onclick="toggle(this)">Показать решение</button>
+<div class="solution">
+<pre>
+n = int(input("Введите число: "))
+i = 1
+
+while i <= n:
+    print(i)
+    i += 1
+</pre>
+</div>
+</div>
+
+<!-- ================= ЗАДАНИЕ 4 ================= -->
+<div class="task">
+<h3>Задание 4</h3>
+<p><b>Условие:</b> Пользователь вводит число.  
+Выведите только чётные числа от 1 до этого числа.</p>
+
+<pre>
+n = int(input("Введите число: "))
+i = 1
+
+# ваш код здесь
+</pre>
+
+<button onclick="toggle(this)">Показать решение</button>
+<div class="solution">
+<pre>
+n = int(input("Введите число: "))
+i = 1
+
+while i <= n:
+    if i % 2 == 0:
+        print(i)
+    i += 1
+</pre>
+</div>
+</div>
+
+<!-- ================= ЗАДАНИЕ 5 ================= -->
+<div class="task">
+<h3>Задание 5</h3>
+<p><b>Условие:</b> Найдите сумму всех чисел от 1 до 100 с помощью цикла <b>while</b>.</p>
+
+<pre>
+i = 1
+total = 0
+
+# ваш код здесь
+</pre>
+
+<button onclick="toggle(this)">Показать решение</button>
+<div class="solution">
+<pre>
+i = 1
+total = 0
+
+while i <= 100:
+    total += i
+    i += 1
+
+print("Сумма:", total)
+
+# По этому заданию был вопрос как это работает.
+1) Если оказалось, что что-то не понятно - абсолютно нормально пересмотреть лекцию/лекции по циклу.
+2) Чтоб наглядно увидеть что происходит, в редакторе поставьте "точку останова" на уровне while,
+и в редиме отладки (debug) пошагово проклацайте что происходит (как я показывал), обращайте
+особое внимание на то как работают переменные и что происходит. Прям реально погрузитесь в это
+заставив себя думать пошагово как то что вы видите.
+Чтоб увидеть полную картину, поставьте две точки останова:
+1) Одну на уровне while;
+2) Вторую на уровне i = 1 (до цикла);
+Так вы увидите что сначала БУДУТ СОЗДАНЫ ПЕРЕМЕННЫЕ, а потом они будут менятся внутри
+инстукций цикла.
+Цикл - это способ исполнить несколько раз один и тот же код (который написан в нем),
+чтоб руками не писать многократно одно и то же (если грубо это описать).
+Код выше можно записать развернув его без цикла в такой цирк:
+
+total = 0
+
+total += i
+total += i
+total += i
+total += i
+total += i
+...
+total += i
+total += i
+# и так 100 раз
+print("Сумма:", total)
+
+# А если с циклом, то нам понадобиться всего-лишь одна дополнительная переменная i,
+которая позволит ограничить условие выполнение цикла, до заданного количества повторов.
+</pre>
+</div>
+</div>
+
+<!-- ================= ЗАДАНИЕ 6 ================= -->
+<div class="task">
+<h3>Задание 6</h3>
+<p><b>Условие:</b> Пользователь вводит число.  
+Найдите сумму всех чисел от 1 до этого числа.</p>
+
+<pre>
+n = int(input("Введите число: "))
+i = 1
+total = 0
+
+# ваш код здесь
+</pre>
+
+<button onclick="toggle(this)">Показать решение</button>
+<div class="solution">
+<pre>
+n = int(input("Введите число: "))
+i = 1
+total = 0
+
+while i <= n:
+    total += i
+    i += 1
+
+print("Сумма:", total)
+</pre>
+</div>
+</div>
+
+<!-- ================= ЗАДАНИЕ 7 ================= -->
+<div class="task">
+<h3>Задание 7</h3>
+<p><b>Условие:</b> Пользователь вводит число.  
+Выведите таблицу умножения для этого числа от 1 до 10.</p>
+
+<pre>
+n = int(input("Введите число: "))
+i = 1
+
+# ваш код здесь
+</pre>
+
+<button onclick="toggle(this)">Показать решение</button>
+<div class="solution">
+<pre>
+n = int(input("Введите число: "))
+i = 1
+
+while i <= 10:
+    print(f"{n} x {i} = {n * i}")
+    i += 1
+</pre>
+</div>
+</div>
+
+<!-- ================= ЗАДАНИЕ 8 ================= -->
+<div class="task">
+<h3>Задание 8</h3>
+<p><b>Условие:</b> Пользователь вводит пароль.  
+Запрашивайте пароль снова, пока он не будет равен <b>"python"</b>.</p>
+
+<pre>
+password = input("Введите пароль: ")
+
+# ваш код здесь
+</pre>
+
+<button onclick="toggle(this)">Показать решение</button>
+<div class="solution">
+<pre>
+password = input("Введите пароль: ")
+
+while password != "python":
+    password = input("Неверно. Введите пароль ещё раз: ")
+
+print("Пароль принят")
+
+
+# ИЛИ
+password = input("Введите пароль: ")
+
+while True:
+    if password == "python":
+        break
+    password = input("Неверно. Введите пароль ещё раз: ")
+
+print("Пароль принят")
+
+# ОПЯТЬ ЖЕ ПОВТОРЮ такой момент, с пониманием которого бывают проблеммы:
+1) Создавать (или пересоздавать) переменные внутри цикла можно, вроде password = ...
+При заходе на новый "круг" цикла, просто значение в переменной заменитсья на новое.
+Например, цикл который бесконечно делает print в терминал числа от 1 до 5:
+
+num = 1
+
+while True:
+    if num == 6:
+        num = 1
+    print(num)
+    num += 1
+    input() # просто чтоб тормозить выполнение до любого ввода.
+            # input никуда не сохраняется и не используется.
+
+</pre>
+</div>
+</div>
+
+<!-- ================= ЗАДАНИЕ 9 ================= -->
+<div class="task">
+<h3>Задание 9</h3>
+<p><b>Условие:</b> Пользователь вводит числа.  
+Программа должна считать сумму введённых чисел,  
+пока пользователь не введёт <b>0</b>.</p>
+
+<pre>
+total = 0
+num = int(input("Введите число: "))
+
+# ваш код здесь
+</pre>
+
+<button onclick="toggle(this)">Показать решение</button>
+<div class="solution">
+<pre>
+total = 0
+num = int(input("Введите число: "))
+
+while num != 0:
+    total += num
+    num = int(input("Введите число: "))
+
+print("Сумма:", total)
+
+# или так:
+
+total = 0
+
+while True:
+    num = int(input("Введите число: "))
+    if num == 0:
+        break
+    total += num
+
+print("Сумма:", total)
+
+</pre>
+</div>
+</div>
+
+<!-- ================= ЗАДАНИЕ 10 ================= -->
+<div class="task">
+<h3>Задание 10</h3>
+<p><b>Условие:</b> Пользователь вводит число.  
+Подсчитайте, сколько цифр в этом числе. Можно без цикла решить любым способом.</p>
+
+<pre>
+num = int(input("Введите число: "))
+count = 0
+
+# ваш код здесь
+</pre>
+
+<button onclick="toggle(this)">Показать решение</button>
+<div class="solution">
+<pre>
+num = int(input("Введите число: "))
+count = 0
+
+if num == 0:
+    count = 1
+else:
+    if num < 0:
+        num = -num  # меняем знак на + (- на - = +)
+
+    while num > 0:
+        count += 1
+        num //= 10
+
+print("Количество цифр:", count)
+</pre>
+В примере выше история такая, что мы считаем количество циклов операций
+целочисленного деления пока в num не получиится 0. Без цикла это выглядит
+так:
+<pre>
+>>> 56825 // 10
+5682
+>>> 5682 // 10
+568
+>>> 568 // 10
+56
+>>> 56 // 10
+5
+>>> 5 // 10
+0
+</pre>
+Или можно посчитать без цикла просто по длине числа как строки:
+<pre>
+num = int(input("Введите число: "))
+
+if num < 0:
+    num = -num  # меняем знак на + (- на - = +)
+
+count = len(str(num))
+print("Количество цифр:", count)
+
+
+# или
+num = int(input("Введите число: "))
+
+# просто для примера:
+if num < 0:
+    count = len(str(num)) - 1  # не учитываем знак -
+else:
+    count = len(str(num))
+
+print("Количество цифр:", count)
+
+</pre>
+</div>
+</div>
+
+
+<!-- ================= ЗАДАНИЕ 11 ================= -->
+<div class="task">
+<h3>Задание 11</h3>
+<p><b>Условие:</b> Выведите слово в терминал задом-наперед несколькими способами:<br>
+- через срез (чтоб вспомнить);<br>
+- через цикл while<br>
+    a) сформировав при помощи цикла и индексов новый "перевернутый" объект строки;<br>
+    b) делая <b>print</b> символов с конца без переноса строк в терминале (параметр end= у print) 
+</p>
+
+<pre>
+word = "иладеп"
+
+# ваш код здесь
+</pre>
+
+<button onclick="toggle(this)">Показать решение</button>
+<div class="solution">
+<pre>
+# 1)
+word = "иладеп"
+print(word[::-1])
+
+
+# 2)
+word = "иладеп"
+
+drow = ""
+index = len(word) - 1
+while index > -1:
+    drow += word[index]
+    index -= 1
+print(drow)
+
+
+# 3)
+word = "иладеп"
+
+index = len(word) - 1
+while index > -1:
+    print(word[index], end="")
+    index -= 1
+else:
+    print()  # в конце перенести строку в терминале
+
+</pre>
+</div>
+</div>
+
+
+<!-- ================= ЗАДАНИЕ 12 ================= -->
+<div class="task">
+<h3>Задание 12</h3>
+<p>Тут я наверно заигрался и это задание наверно не простое. Но не страшно,
+давайте попробуем не спеша пошагово продумать что нужно делать.<br>
+<b>Условие:</b> Есть строка с любой информацией, например:<br>
+<pre>'Компания ООО "Рога и Копыта" выиграли тындырындын по закупке чего-то.'</pre>
+Нужно из нее вырезать кусок между какими-то одинаковыми символами. Например в данном
+случае чтоб получить название компании, нужно вырезать вежду кавычками.<br>
+<br>
+Метод строк split не использовать. Нужно использовать только метод index!!<br>
+Можете поэкспериментировать и решить задание без цикла и с циклом, как хотите.<br>
+P.S. Понадобятся срезы, и сделайте запрос текста и запрос символа между повторением
+которого вырезать через input.<br>
+P.P.S См. таблицу методов строк. Метод index возвращает индекс ПЕРВОГО вхождения
+символа в строке (второго не возвращает <i>(если не "намутить" что он станет первым в какой-то промежуточной строке")</i>).
+</p>
+
+<pre>
+text = input("Введите текст: ")
+symbol = input("Введите символ который по краям фрагмента текста: ")
+
+# ваш код здесь
+</pre>
+
+<button onclick="toggle(this)">Показать решение</button>
+<div class="solution">
+<pre>
+text = input("Введите текст: ")
+symbol = input("Введите символ который по краям фрагмента текста: ")
+
+start_index = text.index(symbol) + 1 # индекс начала получили
+
+new_text = ""
+while start_index < len(text):
+    char = text[start_index]  # берем символ из текста
+    if char == symbol:  # когда встретился "второй" символ то всё.
+        break
+    new_text += char
+    start_index += 1
+
+print(new_text)
+
+
+# ИЛИ только срезами. Внимательно с индексами и промежуточной строкой.
+text = input("Введите текст: ")
+symbol = input("Введите символ который по краям фрагмента текста: ")
+
+start = text.index(symbol) + 1 # индекс начала получили
+
+# давайте сразу срежем с этого момента до конца текста:
+part = text[start:] # срез с start до конца
+
+stop = part.index(symbol)  # получаем индекс второго вхождения symbol
+
+result = text[start:stop + start]
+# или
+result = part[:stop]
+
+print(result)
+
+
+</pre>
+</div>
+</div>
+
+
+<!-- ================= ЗАДАНИЕ 13 ================= -->
+<div class="task">
+<h3>Задание 13</h3>
+<p><b>Условие:</b> Тут всё просто:<br>
+Есть строка "ступеньки", выведите ее в терминал вот так:
+<pre>
+с<br>
+ т<br>
+  у<br>
+   п<br>
+    е<br>
+     н<br>
+      ь<br>
+       к<br>
+        и<br>
+</pre>
+</p>
+
+<pre>
+text = "ступеньки"
+
+# ваш код здесь
+</pre>
+
+<button onclick="toggle(this)">Показать решение</button>
+<div class="solution">
+<pre>
+text = "ступеньки"
+
+# первый вариант:
+index = 0
+while index < len(text):
+    for_print = " " * index + text[index]
+    print(for_print)
+    index += 1
+
+
+# второй вариант:
+index = 0
+while index < len(text):
+    # метод строк rjust добавляет до нужной длины слева то что вы указали в нем
+    char = text[index]
+    for_print = char.rjust(index+1, " ")
+    print(for_print)
+    index += 1
+
+
+# второй вариант сокращенно то же самое, к объекту символа применяем метод:
+index = 0
+while index < len(text):
+    for_print = text[index].rjust(index+1, " ")
+    print(for_print)
+    index += 1
+
+
+# ступеньки наоборот:
+text = text[::-1]
+index = 0
+while index < len(text):
+    for_print = text[index].rjust(len(text) - index, " ")
+    print(for_print)
+    index += 1
+
+</pre>
+</div>
+</div>
+
+
+
+<!-- ================= ЗАДАНИЕ 14 ================= -->
+<div class="task">
+<h3>Задание 14</h3>
+<p><b>Условие:</b> Есть перечень знаков пунктуации и спец. символов:<br>
+punctuation = "!@#$%^&./,?|"<br>
+И есть строка текста, в котрой они могут присутствовать.<br>
+Сформируйте новую строку без знаков пунктуации, оставив только текст, пробелы сохранить.
+Так нужно вот и всё.
+</p>
+
+<pre>
+punctuation = "!@#$%^&./,?|"
+text = "Наверно на этом упражнении закончим. Хватит! Мы хотим отдыхать! #@&#@&!!!"
+
+# ваш код здесь
+</pre>
+
+<button onclick="toggle(this)">Показать решение</button>
+<div class="solution">
+<pre>
+punctuation = "!@#$%^&./,?|"
+text = "Наверно на этом упражнении закончим. Хватит! Мы хотим отдыхать! #@&#@&!!!"
+
+
+new_text = ""
+
+idx = 0
+while idx < len(text):
+    char = text[idx]
+    if char not in punctuation:
+        new_text += char
+    idx += 1
+else:
+    text = text.strip()  # почистим от пробелов по бокам. Только по бокам.
+
+print(new_text)
+
+</pre>
+</div>
+</div>
+
+
+
+
+<div class="footer">
+    Oleksandr Tukas • Курс Python • офлайн-версия • без сохранения данных<br>
+    <a href="https://www.udemy.com/course/python-full-course"
+       target="_blank" rel="noopener noreferrer">
+        Перейти в курс
+    </a>
+</div>
+
+<script>
+function toggle(btn) {
+    const sol = btn.nextElementSibling;
+    if (sol.style.display === "block") {
+        sol.style.display = "none";
+        btn.textContent = "Показать решение";
+    } else {
+        sol.style.display = "block";
+        btn.textContent = "Скрыть решение";
+    }
+}
+
+function showAll() {
+    document.querySelectorAll(".solution").forEach(el => el.style.display = "block");
+    document.querySelectorAll(".task button").forEach(b => b.textContent = "Скрыть решение");
+}
+
+function hideAll() {
+    document.querySelectorAll(".solution").forEach(el => el.style.display = "none");
+    document.querySelectorAll(".task button").forEach(b => b.textContent = "Показать решение");
+}
+
+function toggleTheme() {
+    document.body.classList.toggle("dark");
+}
+</script>
+
+</body>
+</html>
